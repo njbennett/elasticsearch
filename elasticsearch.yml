@@ -1,0 +1,37 @@
+---
+name: elasticsearch
+update:
+  canaries: 1
+  canary_watch_time: 30000-1200000
+  max_in_flight: 1
+  serial: false
+  update_watch_time: 5000-1200000
+instance_groups:
+- name: elasticsearch
+  azs:
+  - z1
+  instances: 1
+  persistent_disk_type: 5GB
+  vm_type: default
+  stemcell: default
+  update:
+    max_in_flight: 1
+    serial: true
+  networks:
+  - name: default
+  jobs:
+  - name: elasticsearch
+    release: logsearch
+    properties:
+      elasticsearch:
+        node:
+          allow_master: true
+          allow_data: true
+releases:
+- name: "logsearch"
+  url: "https://bosh.io/d/github.com/cloudfoundry-community/logsearch-boshrelease?v=209.0.0"
+  version: "209.0.0"
+stemcells:
+- alias: "default"
+  os: "ubuntu-trusty"
+  version: "3586.27"
