@@ -14,4 +14,5 @@ bbl up --aws-access-key-id "${access_key_id}" \
   --aws-region us-west-1 \
   --iaas aws
 
+eval "$(bbl print-env)"
 bosh deploy -d elasticsearch elasticsearch.yml
