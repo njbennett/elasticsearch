@@ -15,4 +15,7 @@ bbl up --aws-access-key-id "${access_key_id}" \
   --iaas aws
 
 eval "$(bbl print-env)"
+bosh upload-stemcell --sha1 df1d84d1d844bef3a6ce6e8f837f9ef1eeaed36c \
+  https://bosh.io/d/stemcells/bosh-aws-xen-hvm-ubuntu-trusty-go_agent?v=3586.36
+
 bosh deploy -d elasticsearch elasticsearch.yml
