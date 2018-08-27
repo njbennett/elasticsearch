@@ -50,21 +50,26 @@ getting the workstation I used for this
 set up properly.)
 
 The script was tested with
-# bosh version
-# bbl version
+`bosh version 4.0.1-a18c7230-2018-05-23T23:11:20Z`
+and `bbl version 6.6.4 (darwin/amd64)`
 
 You'll also need an AWS account
 and to have logged in locally to the aws cli.
 When testing, I used credentials from the admin user
-with the following command.
+with the [aws configure](https://docs.aws.amazon.com/cli/latest/userguide/cli-chap-getting-started.html)
 
-```
-# aws login command
-```
+# Teardown
+Run `bosh delete-deployment -d elasticsearch -n` to delete the BOSH Deployment.
 
-# Troubleshooting
+Run `bbl destroy` with the IAM user credentials 
+to delete the BOSH Director and Jumpbox.
+
+Then delete the `bbl-user` in the AWS console.
+(There's definitely a way to do this on the command line
+but currently AWS complains about having to delete policies first
+so I just gave in to the GUI.)
+
 # link to documentation
 This repository is based on the [BOSH Boot Loader getting started documentation]().
 If `do-the-thing.sh` doesn't work
-I recommend comparing it
-to the commands listed in that BBL documentation.
+try comparing it to the commands listed in that BBL documentation.
