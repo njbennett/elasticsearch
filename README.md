@@ -69,7 +69,7 @@ Then delete the `bbl-user` in the AWS console.
 but currently AWS complains about having to delete policies first
 so I just gave in to the GUI.)
 
-# link to documentation
+# Additional Documentation
 This repository is based on the [BOSH Boot Loader getting started documentation]().
 If `do-the-thing.sh` doesn't work
 try comparing it to the commands listed in that BBL documentation.
